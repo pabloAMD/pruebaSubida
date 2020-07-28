@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Stock</title>
+	<style>
+.tabla {
+	border-collapse: collapse;
+}
+
+.cabeceraTabla {
+	text-align: center;
+	background: none repeat scroll 0 0 #E5E5E5;
+	border-bottom: 1px solid #BBBBBB;
+	padding: 8px;
+}
+
+.filaPar {
+	text-align: center;
+	background: none repeat scroll 0 0 #FFFFFFF;
+	border-top: 1px solid #BBBBBB;
+}
+
+.filaImpar {
+	text-align: center;
+	background: none repeat scroll 0 0 #F9F9F9;
+	border-top: 1px solid #BBBBBB;
+}
+
+.confondo {
+	background-color: #def;
+	width: 100%;
+	font-size: 24px;
+	font-size: 1.000em
+}
+
+.bot {
+	background: #00c3f8;
+	border-radius: 100px 100px 100px 100px;
+	font-size: 100%;
+	color: #fff;
+}
+
+.bot2 {
+	background: #ff0000;
+	border-radius: 100px 100px 100px 100px;
+	font-size: 100%;
+	color: #fff;
+}
+</style>
+
+	<title>Stock</title>
+	<!-- Bootstrap core CSS-->
+	<link href="principal/vendor/bootstrap/css/bootstrap.min.css"
+		rel="stylesheet"></link>
+	<!-- Custom styles for this template  -->
+	<link href="principal/css/shop-homepage.css" rel="stylesheet"></link>
+
+	<link rel="icon" type="image/png"
+		href="plantillaTablas/images/icons/favicon.ico"></link>
+	<link rel="stylesheet" type="text/css"
+		href="plantillaTablas/vendor/bootstrap/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="plantillaTablas/fonts/font-awesome-4.7.0/css/font-awesome.min.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="plantillaTablas/vendor/animate/animate.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="plantillaTablas/vendor/select2/select2.min.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="plantillaTablas/vendor/perfect-scrollbar/perfect-scrollbar.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="plantillaTablas/css/util.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="plantillaTablas/css/main.css"></link>
+
+
+
+</h:head>
+<h:body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	<div class="container">
+		<a class="navbar-brand" href="#">Libro</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarResponsive" aria-controls="navbarResponsive"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+	</div>
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-lg-3">
+
+				
+
+				<div class="list-group">
+					<h:form>
+					<h1 class="my-4">Agregar Libro</h1>
+						<ul>
+							<li>Nombre: <h:inputText size="15"
+									value="#{libroBean.nombre}" class="confondo" /></li>
+
+							<li>Isbn: <h:inputText size="15" value="#{libroBean.isbn}"
+									class="confondo" /></li>
+							<li>Paginas: <h:inputText size="15"
+									value="#{libroBean.numPag}" class="confondo" /></li>
+
+						</ul>
+
+						<h:commandButton value="Add" action="#{libroBean.add()}"
+							style='width: 100%; font-size: 24px; background-color: #70BF73;' />
+					</h:form>
+					
+					<h:form>
+						<h1 class="my-4">Agregar Capitulo</h1>
+						<ul>
+							<li>Numero: <h:inputText size="15"
+									value="#{capituloBean.numero}" class="confondo" /></li>
+
+							<li>Titulo: <h:inputText size="15" value="#{capituloBean.titulo}"
+									class="confondo" /></li>
+							<li>Libro: <h:selectOneMenu value="#{capituloBean.nombreL}"
+									class="confondo">
+									<f:selectItems value="#{capituloBean.librolist}" var="list1"
+										itemValue="#{list1.nombre}" itemLabel="#{list1.nombre}" />
+								</h:selectOneMenu>
+							</li>
+							<li>Autor: <h:selectOneMenu value="#{capituloBean.nombreA}"
+									class="confondo">
+									<f:selectItems value="#{capituloBean.autorlist}" var="list2"
+										itemValue="#{list2.nombre}" itemLabel="#{list2.nombre}" />
+								</h:selectOneMenu>
+							</li>
+
+						</ul>
+
+						<h:commandButton value="Add" action="#{capituloBean.add()}"
+							style='width: 100%; font-size: 24px; background-color: #70BF73;' />
+					</h:form>
+				</div>
+
+			</div>
+
+			
+
+		</div>
+		</div>
+		<!-- /.container -->
+
+		<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Your
+				Website 2020</p>
+		</div>
+		<!-- /.container --> </footer>
+
+		<!-- Bootstrap core JavaScript -->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+		<!--===============================================================================================-->
+		<script src="plantillaTablas/vendor/jquery/jquery-3.2.1.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="plantillaTablas/vendor/bootstrap/js/popper.js"></script>
+		<script src="plantillaTablas/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="plantillaTablas/vendor/select2/select2.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="plantillaTablas/js/main.js"></script>
+</h:body>
+</html>
